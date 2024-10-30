@@ -1,13 +1,15 @@
-# Identify tools that will allow you to do the following:
-
-## Scan infrastructure as code templates
-
-### Example vulnerability
-
-##Scan AMI’s or containers for OS vulnerabilities
-
-### Example vulnerability
-
-##Scan an AWS environment for cloud configuration vulnerabilities
-
-### Example vulnerability
+1. Scan Infrastructure as Code (IaC) Templates
+Tool: Checkov
+Description: Checkov is an open-source IaC scanner that inspects infrastructure code (e.g., CloudFormation, Terraform) for security and compliance issues, ensuring configurations follow best practices before deployment.
+Example Vulnerability: Publicly Accessible Security Groups
+Description: Checkov can detect security groups that allow unrestricted inbound access on specific ports (e.g., SSH on port 22), which could expose the environment to unauthorized access.
+2. Scan AMIs or Containers for OS Vulnerabilities
+Tool: Amazon Inspector
+Description: Amazon Inspector scans Amazon Machine Images (AMIs) and container images for known vulnerabilities, using a continuously updated database of security advisories.
+Example Vulnerability: Outdated Software Packages
+Description: Inspector might flag old versions of packages like OpenSSL or Apache with known vulnerabilities that attackers could exploit if left unpatched.
+3. Scan an AWS Environment for Cloud Configuration Vulnerabilities
+Tool: Prowler
+Description: Prowler is an open-source tool that audits AWS configurations against best practices and compliance frameworks (e.g., CIS benchmarks, GDPR).
+Example Vulnerability: Unrestricted S3 Bucket Access
+Description: Prowler can identify S3 buckets that are publicly accessible or lack encryption, highlighting configurations that could lead to data exposure.

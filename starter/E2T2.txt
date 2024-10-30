@@ -1,3 +1,11 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
 Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+1. Public Accessibility of EC2 Instances:
+  Solution: Move the web service instance to a private subnet and only expose the Application Load Balancer to the internet
+2. Not Encrypted or Not Using the Specified KMS Key 
+3. Enable Multi-Factor Authentication (MFA) for IAM users
+4. Enable Deletion Protection for Load Balancers
+5. Enable Dropping of Invalid HTTP Headers for ALBs
+6. Enforce IMDSv2 on EC2 Instances

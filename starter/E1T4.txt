@@ -1,5 +1,6 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
-
+Public Exposure of Web Service Instance: The web service instance is placed in a public subnet, making it directly accessible from the internet.
 # Poor practice 2
+Excessive IAM Permissions for Web Service Instance: The IAM role assigned to the web service instance likely has permissions that allow it to access both the "Free Recipes" and "Secret Recipe Vault" S3 buckets.

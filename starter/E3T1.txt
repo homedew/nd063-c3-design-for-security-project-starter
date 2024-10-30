@@ -1,3 +1,9 @@
-# Describe GuardDuty findings that were detected related to the brute force attack
+1. Findings Related to the Brute Force Attack:
+GuardDuty detected an SSH brute force attack targeting the application server’s SSH port due to repeated, unauthorized login attempts.
+2. How GuardDuty Detected the Attack:
+VPC Flow Logs: GuardDuty analyzed network traffic and identified suspicious, high-frequency login attempts.
 
-# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+AWS CloudTrail Logs: If there were attempts using unauthorized IAM credentials, GuardDuty flagged unusual API access.
+Threat Intelligence Feeds: GuardDuty used AWS threat intelligence to detect IPs and patterns known for brute force attacks.
+
+Seems like my Guardduty didnt show anything, but from my guess as above is current issue.

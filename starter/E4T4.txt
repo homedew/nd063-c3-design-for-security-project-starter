@@ -1,8 +1,14 @@
+1. What additional architectural change can be made to reduce the internet-facing attack surface of the web application instance?
 
-# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+Move the Web Application Instance to a Private Subnet: Placing the instance in a private subnet will prevent direct internet access. Only the Application Load Balancer (ALB) in a public subnet would manage incoming traffic, reducing exposure.
+Use AWS Systems Manager (SSM) Instead of SSH: SSM allows secure instance access without opening SSH ports, further reducing attack vectors.
+Add a Web Application Firewall (WAF): Deploying AWS WAF on the ALB can filter out common attack patterns, protecting the web application from malicious traffic.
+2. Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent unauthorized access to the secrets bucket?
 
-# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+Partially: A VPC endpoint for S3 would route access within AWS’s private network, which restricts internet-based access to the bucket. However, if the IAM permissions remain open, users or instances within the VPC could still access the bucket. Secure IAM policies are also necessary to ensure complete protection.
+3. Will applying default encryption settings to the S3 buckets encrypt the data that already exists?
 
-# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+No: Enabling default encryption on an S3 bucket only applies encryption to new objects uploaded after the setting is enabled. Existing data in the bucket would remain unencrypted unless manually re-encrypted.
+4. What would happen if the original CloudFormation templates are applied to this environment?
 
-# What would happen if the original cloud formation templates are applied to this environment.
+Configuration Reversion: Reapplying the original CloudFormation templates would overwrite any manual or CLI changes made, restoring previous settings. This would likely reintroduce insecure configurations, undo security adjustments, and reset any compliance achieved.
